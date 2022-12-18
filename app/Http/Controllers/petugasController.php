@@ -71,7 +71,7 @@ class petugasController extends Controller
 
     public function logout(){
         session()->flush();
-        return redirect(route('showLogin'));
+        return redirect(route('pendonor.list'));
     }
 
     public function index() {
@@ -80,6 +80,5 @@ class petugasController extends Controller
             'pendonor' => $pendonor
         ]);
     }
-
 }
 

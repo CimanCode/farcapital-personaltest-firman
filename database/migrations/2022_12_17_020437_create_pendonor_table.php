@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->string('alamat');
+            $table->integer('Umur');
+            $table->string('status');
 
             $table->timestamps();
         });

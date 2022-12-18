@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th>Nama</th>
-                <th>Keterangan</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -24,7 +24,7 @@
             @foreach ($pendonor as $pendonors )
                 <tr>
                     <td>{{ $pendonors->nama }}</td>
-                    <td></td>
+                    <td>{{ $pendonors->status }}</td>
                     <td><a href="{{ route('pendonor.detail', ["id"=>$pendonors->id]) }}"><button>Detail</button></a></td>
                     <td><a href="{{ route('pendonor.delete', ["id"=>$pendonors->id]) }}"><button>Delete</button></a></td>
                 </tr>

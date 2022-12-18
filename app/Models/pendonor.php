@@ -13,6 +13,6 @@ class pendonor extends Model
     protected $table = ('pendonor');
 
     function pendonor(){
-        return $this->belongsTo(pendonor::class);
+        return $this->belongsTo(persyaratan::class);
     }
 }

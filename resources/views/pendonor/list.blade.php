@@ -20,6 +20,8 @@
                 <th>Jenis Kelamin</th>
                 <th>Tanggal Lahir</th>
                 <th>Alamat</th>
+                <th>Umur</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +31,8 @@
                     <td>{{ $pendonors->jenis_kelamin }}</td>
                     <td>{{ $pendonors->tanggal_lahir }}</td>
                     <td>{{ $pendonors->alamat }}</td>
+                    <td>{{ $pendonors->Umur }}</td>
+                    <td>{{ $pendonors->status }}</td>
                     <td><a href="{{ route('pendonor.detail', ["id"=>$pendonors->id]) }}"><button>Detail</button></a></td>
                 </tr>
             @endforeach

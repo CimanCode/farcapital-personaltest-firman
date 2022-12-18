@@ -11,6 +11,11 @@
         <div style="display: flex; justify-content: space-between; align-items: center">
             <h1>Halaman Donor Darah</h1>
             @if (session()->has('logged'))
+                <a href="{{ route('peryaratan.list') }}">Persyratan</a>
+                <a href="{{ route('pendonor.daftar') }}">Daftar Pendonor</a>
+            @endif
+                <a href="{{ route('pendonor.list') }}">list Pendonor</a>
+            @if (session()->has('logged'))
                 <a href="{{ route('logout') }}"><button>Logout</button></a>
             @else
                 <a href="{{ route('showLogin') }}"><button>Login</button></a>

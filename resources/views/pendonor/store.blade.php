@@ -1,3 +1,6 @@
+@extends('pendonor.dashbord')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +21,26 @@
         <input type="text" name="nama" id="nama" placeholder="masukan nama">
         <br>
         <label for="jenis_kelamin">Jenis Kelamin</label>
-        <input type="text" name="jenis_kelamin" id="jenis_kelamin" placeholder="masukan jenis kelamin">
+        <select id="jenis_kelamin" name="jenis_kelamin">
+            <option value="Laki_laki">Laki-Laki</option>
+            <option value="perempuan">Perempuan</option>
+        </select>
         <br>
         <label for="tanggal_lahir">Tanggal Lahir</label>
         <input type="date" name="tanggal_lahir" id="tanggal_lahir" placeholder="masukan tanggal lahir">
         <br>
         <label for="alamat">Alamat</label>
-        <input type="text" name="alamat" id="alamat" placeholder="masukan alamat">
+        <textarea name="alamat" id="alamat" placeholder="masukan alamat"></textarea>
         <br>
+        <table>
+            @foreach ($persyaratan as $pr )
+                <tr>
+                    <td>{{ $pr->nama_persyaratan }}<input name="persyaratan[]" type="checkbox"></td>
+                </tr>
+            @endforeach
+        </table>
         <button type="submit">save</button>
     </form>
 </body>
 </html>
+@endsection
