@@ -42,15 +42,11 @@ class pendonorController extends Controller
         $d_birth = Carbon::parse($rq->tanggal_lahir);
         $age = $d_birth->diffInYears($now);
 
-        // if($age <= 17 || $age >= 60){
-        //     $status = "Tidak Boleh Donor";
-        // } else {
-            if(isset($rq->persyaratan)){
-                $status = "Tidak Boleh Donor";
-            } else {
-                $status = "Tahap pemeriksaan";
-            }
-        // }
+        if(isset($rq->persyaratan)){
+            $status = "Tidak Boleh Donor";
+        } else {
+            $status = "Tahap pemeriksaan";
+        }
 
         $pendonor['status'] = $status;
         $pendonor['Umur'] = $age;
