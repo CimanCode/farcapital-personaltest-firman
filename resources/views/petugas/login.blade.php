@@ -15,13 +15,13 @@
             </h1>
         @endif
         <label for="Username">Username</label>
-        <input name="Username" id="Username" placeholder="masukan username">
+        <input type="text" name="Username" id="Username" placeholder="masukan username">
         <br>
         <label for="Email">Email</label>
-        <input name="Email" id="Email" placeholder="masukan email">
+        <input type="text" name="Email" id="Email" placeholder="masukan email">
         <br>
         <label for="Password">Password</label>
-        <input name="Password" id="Password" placeholder="masukan password">
+        <input type="password" name="Password" id="Password" placeholder="masukan password">
         <br>
         <div>
         <button type="submit">Login</button>

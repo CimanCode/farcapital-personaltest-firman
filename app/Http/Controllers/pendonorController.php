@@ -42,15 +42,15 @@ class pendonorController extends Controller
         $d_birth = Carbon::parse($rq->tanggal_lahir);
         $age = $d_birth->diffInYears($now);
 
-        if($age <= 17 || $age >= 60){
-            $status = "Tidak Boleh Donor";
-        } else {
+        // if($age <= 17 || $age >= 60){
+        //     $status = "Tidak Boleh Donor";
+        // } else {
             if(isset($rq->persyaratan)){
                 $status = "Tidak Boleh Donor";
             } else {
                 $status = "Tahap pemeriksaan";
             }
-        }
+        // }
 
         $pendonor['status'] = $status;
         $pendonor['Umur'] = $age;
@@ -68,12 +68,16 @@ class pendonorController extends Controller
     public function detail($id, Request $request) {
         $pendonor = pendonor::query()->where('id', $id)->first();
         if($request->method() == 'POST'){
-            if($request->input('testkesehatan'))
-            {
-                if(count($request->input('testkesehatan')) == 5){
-                    $pendonor->update(['status' => 'Lolos Tahap Pemeriksaan']);
-                } else {
-                    $pendonor->update(['status' => 'Tidak Lolos Tahap Pemeriksaan']);
+            if($pendonor->Umur <= 17 || $pendonor->Umur >= 60){
+                $pendonor->update(['status' => 'Tidak Lolos Tahap Pemeriksaan']);
+            } else {
+                if($request->input('testkesehatan'))
+                {
+                    if(count($request->input('testkesehatan')) == 5){
+                        $pendonor->update(['status' => 'Lolos Tahap Pemeriksaan']);
+                    } else {
+                        $pendonor->update(['status' => 'Tidak Lolos Tahap Pemeriksaan']);
+                    }
                 }
             }
         }

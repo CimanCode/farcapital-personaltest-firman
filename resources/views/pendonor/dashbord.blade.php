@@ -14,7 +14,11 @@
                 <a href="{{ route('peryaratan.list') }}">Persyratan</a>
                 <a href="{{ route('pendonor.daftar') }}">Daftar Pendonor</a>
             @endif
+            @if(session()->has('logged'))
+                <a href="{{ route('pendonor.list') }}" hidden>list Pendonor</a>
+            @else
                 <a href="{{ route('pendonor.list') }}">list Pendonor</a>
+            @endif
             @if (session()->has('logged'))
                 <a href="{{ route('logout') }}"><button>Logout</button></a>
             @else
